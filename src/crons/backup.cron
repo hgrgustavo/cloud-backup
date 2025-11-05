@@ -1,0 +1,10 @@
+# move files to triage every workday 20 PM
+0 20 * * 1-4 ~/Projects/cloud-backup/src/triage.sh
+
+# move files to backup every friday 20 PM
+0 20 * * 5 hgrgustavo ~/Projects/cloud-backup/src/backup.sh
+
+# create a new backup directory with format: currentYear_currentMonth
+0 0 1 * * hgrgustavo ~/Projects/cloud-backup/src/directory.sh
+
+
