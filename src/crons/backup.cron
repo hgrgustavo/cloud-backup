@@ -7,4 +7,5 @@
 # create a new backup directory with format: currentYear_currentMonth
 0 0 1 * * hgrgustavo ~/Projects/cloud-backup/src/directory.sh
 
-
+# TODO: put into system cron scheduler 
+0 1 * * 6 /caminho/do/projeto/sync.sh gdrive /videos/backup 2025_novembro
