@@ -4,4 +4,4 @@
 #!/bin/bash
 SOURCE="$1"
 DEST="$2"
-rclone sync "$SOURCE" "gdrive:$DEST" --progress
+rclone sync "$SOURCE" "drive:$DEST" --progress
