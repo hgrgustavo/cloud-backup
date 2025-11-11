@@ -1,15 +1,19 @@
 #!/bin/zsh
 
-source ../.env
+source /home/hgrgustavo/Projects/cloud-backup/.env
 
-generate_checksum() {
-  for file in $(find "$BACKUP_DIRECTORY" -type f); do
-    sha256sum "$file" >"${file}.sha256"
+generate_checksums() {
+  mkdir -p "$TRIAGE_VIDEO_CHECKSUMS_PATH"
+
+  for file in $(find "$TRIAGE_VIDEO_CHECKSUMS_PATH" -type f); do
+    if [[ ! -f "${file}.sha256" ]]; then
+      sha256sum "$file" >"${TRIAGE_VIDEO_CHECKSUMS_PATH}/${file}.sha256"
+    fi
   done
 }
 
-verify_checksum() {
-  for file in $(find "$BACKUP_DIRECTORY" -type f); do
-    sha256sum -c "$file" >>"logs.txt"
+verify_checksums() {
+  for file in $(find "$TRIAGE_VIDEO_CHECKSUMS_PATH" -type f); do
+    sha256sum -c "$file" >>"${TRIAGE_VIDEO_CHECKSUMS_PATH}/checksums_log.log"
   done
 }
