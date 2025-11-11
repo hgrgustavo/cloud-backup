@@ -5,7 +5,7 @@
 SERVICE="$1"
 SOURCE="$2"
 DESTINY="$3"
-ADAPTER="~/Projects/cloud-backup/src/adapters/${SERVICE}.sh"
+ADAPTER="/home/hgrgustavo/Projects/cloud-backup/src/adapters/${SERVICE}.sh"
 
 if ![ -f "$ADAPTER" ]; then
   echo "Adapter for '$SERVICE' not found."
