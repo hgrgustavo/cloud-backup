@@ -2,4 +2,4 @@
 
 source /home/hgrgustavo/Projects/cloud-backup/.env
 
-ls --sort=time "$BACKUP_VIDEO_DESTINY_PREVIOUS_MONTH" >>"$BACKUP_VIDEO_DESTINY_PREVIOUS_MONTH/list.log"
+ls --sort=time "$BACKUP_VIDEO_DESTINY" >"${BACKUP_VIDEO_DESTINY}/list.log"
