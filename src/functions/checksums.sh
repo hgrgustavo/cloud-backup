@@ -5,7 +5,7 @@ source /home/hgrgustavo/Projects/cloud-backup/.env
 generate_checksums() {
   mkdir -p "${TRIAGE_VIDEO_CHECKSUMS_PATH}"
 
-  for file in $(find "$TRIAGE_VIDEO_PATH" -type f); do
+  for file in $(find "$TRIAGE_VIDEO_PATH" -type f ! -name '*.sha256'); do
     checksum_file="${TRIAGE_VIDEO_CHECKSUMS_PATH}/$(basename ${file}).sha256"
 
     if [[ ! -f "${checksum_file}" ]]; then
@@ -18,7 +18,7 @@ generate_checksums() {
 verify_checksums() {
   log_file="${TRIAGE_VIDEO_CHECKSUMS_PATH}/checksums_log.log"
 
-  echo "$(date): " >"$log_file"
+  echo "$(date)" >"$log_file"
 
   for checksum in $(find "$TRIAGE_VIDEO_CHECKSUMS_PATH" -type f -name "*.sha256"); do
     sha256sum -c "$checksum" >>"$log_file" 2>&1
