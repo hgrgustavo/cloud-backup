@@ -1,12 +1,9 @@
 use figlet_rs::FIGfont;
-pub mod gradient;
+
+mod gradient;
 
 pub fn print() {
-    let font = FIGfont::from_file(&format!(
-        "{}/fonts/DOS_Rebel.flf",
-        env!("CARGO_MANIFEST_DIR")
-    ))
-    .unwrap();
+    let font = FIGfont::from_file("./fonts/DOS_Rebel.flf").unwrap();
 
     let figure = font
         .convert(" > Cloud::Backup_")
