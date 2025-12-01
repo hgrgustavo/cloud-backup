@@ -1,10 +1,10 @@
 #!/bin/bash
 
-source /home/hgrgustavo/Projects/cloud-backup/.env
+source ${HOME}/Projects/cloud-backup/.env
 
-if ! mountpoint -q "$MOUNT_POINT"; then
+if ! mountpoint -q "${BACKUP_ROOT}"; then
   echo "Device not mounted. Mounting it now..."
   sudo mount "$BACKUP_DEVICE" "$BACKUP_ROOT"
 fi
 
-mv /home/hgrgustavo/Design/videos/* -t "${BACKUP_VIDEO_DESTINY}"
+mv ${HOME}/Design/videos/* -t "${BACKUP_VIDEO_DESTINY}"
