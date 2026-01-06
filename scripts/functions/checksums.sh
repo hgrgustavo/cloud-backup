@@ -5,7 +5,7 @@ source ${HOME}/Projects/cloud-backup/.env
 generate_checksums() {
   mkdir -p "${CHECKSUMS_PATH}"
 
-  for file in $(find "$VIDEOS_PATH" -type f ! -name '*.sha256'); do
+  for file in $(find "$MONTHLY_DIRECTORY_PATH" -type f ! -name '*.sha256'); do
     checksum_file="${CHECKSUMS_PATH}/$(basename ${file}).sha256"
 
     if [[ ! -f "${checksum_file}" ]]; then
@@ -18,9 +18,9 @@ generate_checksums() {
 verify_checksums() {
   log_file="${CHECKSUMS_PATH}/checksums_log.log"
 
-  echo "$(date)" >"$log_file"
+  echo "$(LC_TIME=pt_BR.UTF-8 date)" >"$log_file"
 
   for checksum in $(find "${CHECKSUMS_PATH}" -type f -name "*.sha256"); do
-    sha256sum -c "$checksum" >>"$log_file" 2>&1
+    sha256sum -c "$checksum" 2>&1 | sed "s|.*/||" >>$"$log_file"
   done
 }

@@ -6,7 +6,7 @@ pub fn print() {
     let font = FIGfont::from_file("./fonts/DOS_Rebel.flf").unwrap();
 
     let figure = font
-        .convert(" > Cloud::Backup_")
+        .convert(" > Cloud::Backup")
         .expect("Could not convert font to a string.")
         .to_string();
     gradient::apply(&figure);
