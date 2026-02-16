@@ -12,4 +12,4 @@ if ![ -f "$ADAPTER" ]; then
   exit 1
 fi
 
-"$ADAPTER" "$SOURCE" "$DESTINY" >>${HOME}/Design/backup/weekly_sync.log
+"$ADAPTER" "$SOURCE" "$DESTINY" >${HOME}/Design/backup/weekly_sync.log

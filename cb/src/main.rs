@@ -1,7 +1,7 @@
-use menu;
-use menu::input;
+use title;
+use input;
 
 fn main() {
-    menu::print();
-    let choice = menu::input::capture_choice();
+    title::print();
+    //input::capture();
 }
